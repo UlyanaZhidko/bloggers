@@ -1,0 +1,171 @@
+/* header */
+
+.header {
+    width: 100%;
+    font-size: 15px;
+}
+
+[type="checkbox"]+label:before {
+    display: none !important;
+}
+
+.header ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+}
+
+.header li a {
+    display: block;
+    padding: 20px 20px;
+    text-decoration: none;
+    border-bottom: none;
+}
+
+.header li a:hover,
+.header .menu-btn:hover {
+    border-bottom: #c4c4c4;
+}
+
+.header .logo {
+    display: block;
+    float: left;
+    padding: 15px 27px;
+    text-decoration: none;
+    border: none;
+}
+
+
+/* menu */
+
+.header .menu {
+    clear: both;
+    max-height: 0;
+    transition: max-height .2s ease-out;
+}
+
+
+/* menu icon */
+
+.header .menu-icon {
+    cursor: pointer;
+    display: inline-block;
+    padding: 24px 15px;
+    position: fixed;
+    user-select: none;
+    background-color: #843D7F;
+    border-radius: 50%;
+    margin: 10px;
+    right: 0;
+    top: 0;
+    z-index: 1000;
+}
+
+.header .menu-icon .navicon {
+    background: #fff;
+    display: block;
+    height: 2px;
+    position: relative;
+    transition: background .2s ease-out;
+    width: 18px;
+}
+
+.header .menu-icon .navicon:before,
+.header .menu-icon .navicon:after {
+    background: #fff;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+}
+
+.header .menu-icon .navicon:before {
+    top: 5px;
+}
+
+.header .menu-icon .navicon:after {
+    top: -5px;
+}
+
+
+/* menu btn */
+
+.header .menu-btn {
+    display: none;
+}
+
+.header .menu-btn:checked~.menu {
+    max-height: 500px;
+}
+
+.header .menu-btn:checked~.menu-icon .navicon {
+    background: transparent;
+}
+
+.header .menu-btn:checked~.menu-icon .navicon:before {
+    transform: rotate(-45deg);
+}
+
+.header .menu-btn:checked~.menu-icon .navicon:after {
+    transform: rotate(45deg);
+}
+
+.header .menu-btn:checked~.menu-icon:not(.steps) .navicon:before,
+.header .menu-btn:checked~.menu-icon:not(.steps) .navicon:after {
+    top: 0;
+}
+
+
+/* 48em = 768px */
+
+@media (min-width: 48em) {
+    .header {
+        position: fixed;
+        z-index: 10000;
+        background: linear-gradient(152.97deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 100%);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+    }
+    .header li {
+        float: left;
+    }
+    .header li a {
+        padding: 20px 20px;
+        color: #fff;
+        border-bottom: none;
+    }
+    .header li a:hover {
+        border-bottom: 1px solid #fff;
+        /* font-weight: 500; */
+        /* text-decoration: underline; */
+    }
+    .header .menu {
+        clear: none;
+        float: right;
+        max-height: none;
+        top: 0;
+    }
+    .header .menu-icon {
+        display: none;
+    }
+}
+
+@media (max-width: 48em) {
+    .header .menu {
+        background-color: #fff;
+        width: 70vw;
+        position: fixed;
+        z-index: 1000;
+    }
+    .header li a {
+        color: #000;
+        border-bottom: 1px solid #d6cfcf;
+        padding: 15px 20px;
+    }
+    .header li a:hover {
+        border-bottom: 1px solid #87389b;
+    }
+}
